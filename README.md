@@ -1,5 +1,5 @@
 # Entity Realtional Diagram
-[erdVehicrent.png](erdVehicrent.png)
+![erdVehicrent.png](erdVehicrent.png)
 
 # Member
 Siti Vanesa Rahma
