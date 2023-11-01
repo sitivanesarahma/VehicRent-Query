@@ -1,7 +1,7 @@
 # Entity Realtional Diagram
 ![erdVehicrent.png](erdVehicrent.png)
 
-ini adalah tugas RPL membuat perancangan database Vehicrent (Project RPL sebelumnya)
+Ini adalah tugas RPL membuat perancangan database Vehicrent (Project RPL sebelumnya)
 Telkom University
 IF4509 
 Kelompok 6
