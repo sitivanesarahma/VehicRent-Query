@@ -4,7 +4,7 @@ USE vehicrental;
 
 -- clients
 CREATE TABLE IF NOT EXISTS Clients(
-	ID_Client VARCHAR(10) UNIQUE NOT NULL,
+    ID_Client VARCHAR(10) UNIQUE NOT NULL,
     ID_Staff VARCHAR(10) UNIQUE NOT NULL,
     NIK_Client VARCHAR(16) UNIQUE NOT NULL,
     Nama_Client VARCHAR(25) NOT NULL,
@@ -29,7 +29,7 @@ VALUES
 
 -- regent
 CREATE TABLE IF NOT EXISTS Regent(
-	ID_Regent VARCHAR(10) UNIQUE NOT NULL,
+    ID_Regent VARCHAR(10) UNIQUE NOT NULL,
     ID_Staff VARCHAR(10) UNIQUE NOT NULL,
     NIK_Regent VARCHAR(16) UNIQUE NOT NULL,
     Nama_Regent VARCHAR(25) NOT NULL,
@@ -54,7 +54,7 @@ VALUES
 
 -- transaksi
 CREATE TABLE IF NOT EXISTS Transaksi(
-	ID_Transaksi VARCHAR(10) UNIQUE NOT NULL,
+    ID_Transaksi VARCHAR(10) UNIQUE NOT NULL,
     ID_Regent VARCHAR(10) UNIQUE NOT NULL,
     ID_Client VARCHAR(10) UNIQUE NOT NULL,
     ID_Kendaraan VARCHAR(10) UNIQUE NOT NULL,
@@ -81,7 +81,7 @@ VALUES
 
 -- kendaraan
 CREATE TABLE IF NOT EXISTS Kendaraan(
-	ID_Kendaraan VARCHAR(10) UNIQUE NOT NULL,
+    ID_Kendaraan VARCHAR(10) UNIQUE NOT NULL,
     ID_Regent VARCHAR(10) UNIQUE NOT NULL,
     ID_Staff VARCHAR(10) UNIQUE NOT NULL,
     ID_Client VARCHAR(10) UNIQUE NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS Kendaraan(
     MaksimalWaktu_Kendaraan VARCHAR(10) NOT NULL,
     Status_Kendaraan VARCHAR(10) NOT NULL,
     PRIMARY KEY (ID_Kendaraan),
-	CONSTRAINT FK_Regent FOREIGN KEY(ID_Regent) REFERENCES Regent(ID_Regent),
+    CONSTRAINT FK_Regent FOREIGN KEY(ID_Regent) REFERENCES Regent(ID_Regent),
     CONSTRAINT FK_Client FOREIGN KEY(ID_Client) REFERENCES Clients(ID_Client),
     CONSTRAINT FK_KendaraanStaff FOREIGN KEY (ID_Staff) REFERENCES Staff(ID_Staff)
 );
@@ -114,12 +114,12 @@ VALUES
 
 -- pembayaran
 CREATE TABLE IF NOT EXISTS Pembayaran(
-	ID_Pembayaran VARCHAR(10) UNIQUE NOT NULL,
+    ID_Pembayaran VARCHAR(10) UNIQUE NOT NULL,
     ID_Transaksi VARCHAR(10) UNIQUE NOT NULL,
     Metode_Payment VARCHAR(20) NOT NULL,
     Waktu_Payment TIMESTAMP NOT NULL,
     PRIMARY KEY(ID_Pembayaran),
-	CONSTRAINT FK_Transaksi FOREIGN KEY(ID_Transaksi) REFERENCES Transaksi(ID_Transaksi)
+    CONSTRAINT FK_Transaksi FOREIGN KEY(ID_Transaksi) REFERENCES Transaksi(ID_Transaksi)
 );
 
 DESCRIBE Pembayaran;
@@ -134,8 +134,8 @@ VALUES
 
 -- staff
 CREATE TABLE IF NOT EXISTS Staff(
-	ID_Staff  VARCHAR(10) UNIQUE NOT NULL,
-	NIK_Staff VARCHAR(16) UNIQUE NOT NULL,
+    ID_Staff  VARCHAR(10) UNIQUE NOT NULL,
+    NIK_Staff VARCHAR(16) UNIQUE NOT NULL,
     Nama_Staff VARCHAR(25) NOT NULL,
     Alamat_Staff TINYTEXT,
     JenisKelamin_Staff ENUM('P','L'),
@@ -156,7 +156,7 @@ VALUES
 
 -- rekomendasi
 CREATE TABLE IF NOT EXISTS Rekomendasi(
-	ID_Rekomendasi VARCHAR(10) UNIQUE NOT NULL,
+    ID_Rekomendasi VARCHAR(10) UNIQUE NOT NULL,
     ID_Transaksi VARCHAR(10) UNIQUE NOT NULL,
     PRIMARY KEY(ID_Rekomendasi),
     CONSTRAINT FK_TransaksiRekomendasi FOREIGN KEY(ID_Transaksi) REFERENCES Transaksi(ID_Transaksi)
